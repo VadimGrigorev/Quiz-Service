@@ -21,7 +21,7 @@ public class User {
 
     @Column
     @NotNull
-    @Pattern(regexp = "^.+@.+?\\..+$")
+    @Pattern(regexp = "^\\w+@\\w?mail\\.\\w{2,3}")
     private String email;
 
     @Column

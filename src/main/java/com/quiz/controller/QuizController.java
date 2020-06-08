@@ -119,9 +119,4 @@ public class QuizController {
         Pageable paging = PageRequest.of(page, 10, Sort.by("completedAt").descending());
         return completionRepo.findByUserId(user.getId(), paging);
     }
-
-    @GetMapping("/users")
-    public List<User> getUsers(){
-        return userRepo.findAll();
-    }
 }
