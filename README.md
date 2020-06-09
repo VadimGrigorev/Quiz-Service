@@ -15,4 +15,16 @@ and the password must consist of five or more characters.
 In case the email and passsword meet the requirements and there are no registered users 
 with the same email, the server responds with the status code 200, otherwise - 400.
 
+All of the endpoints the service provides require basic authentication. To create a 
+quiz you must send a post request to "api/quizzes" with a json request body containing
+the following keys: "title"(String), "text"(String), "options"(String[]) and "answer"(int[]).
+The server responds with a json with the same fields you entered and an id of the created quiz.
 
+To see the quiz you have created you need to send a get request to "api/quizzes/{id}".
+To solve the quiz you must send a post request to "api/quizzes/{id}/solve" with a json containing
+a field "answer"(int[]) which may be empty if none of the provided cases are true.
+
+The service also provide some functions like:
+#getting all of the quizzes at GET "api/quizzes" sent with a "page" parameter specifying the page number
+#getting the info about compeltions of quizzes at GET "api/quizzes/completed" with a "page" parameter
+#deleting a quiz at DELETE "api/quizzes/{id}
